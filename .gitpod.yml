@@ -1,9 +1,12 @@
 image: "gitpod/workspace-node:latest"
 
 tasks:
-  - command: |
+  - init: |
+      pip install jupyter
+      pnpm install
+    command: |
+      jupyter notebook --ip=0.0.0.0 --no-browser --allow-root &
       pnpm start:localfhenix
-  - init: "pnpm install"
 
 vscode:
   extensions:
