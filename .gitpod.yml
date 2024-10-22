@@ -1,8 +1,9 @@
-image: "gitpod/workspace-node:latest"
+image: "gitpod/workspace-full:latest"  # Use a full workspace image that includes Python
 
 tasks:
   - init: |
-      pip install jupyter
+      sudo apt-get update && sudo apt-get install -y python3-pip  # Ensure pip is installed
+      pip3 install jupyter  # Use pip3 for Python 3
       pnpm install
     command: |
       jupyter notebook --ip=0.0.0.0 --no-browser --allow-root &
